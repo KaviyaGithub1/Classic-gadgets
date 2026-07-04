@@ -1,0 +1,11 @@
+{
+  "name": "classic-gadgets",
+  "private": true,
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "npm run dev:server & npm run dev:client",
+    "seed": "node server/seed-products.js",
+    "setup": "npm install --prefix server && npm install --prefix client && npm run db:push --prefix server --if-present"
+  }
+}

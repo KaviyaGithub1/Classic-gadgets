@@ -1,6 +1,11 @@
+import path from 'path';
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
+// Load env before any feature modules read process.env
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
 import { healthRoute } from './features/health/health.route';
 import { authRoute } from './features/auth/auth.route';
 import { twoFactorRoute } from './features/auth/2fa.route';
@@ -10,7 +15,6 @@ import { productRoute } from './features/products/product.route';
 import { orderRoute } from './features/orders/order.route';
 import { analyticsRoute } from './features/admin/analytics.route';
 
-dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 5000;
