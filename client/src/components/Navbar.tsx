@@ -70,10 +70,14 @@ export const Navbar = () => {
                 type="text" 
                 placeholder="Search for gadgets..."
                 className="flex-1 bg-transparent px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none"
+                suppressHydrationWarning={true}
               />
 
               {/* Search Button */}
-              <button className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 flex items-center justify-center transition-colors">
+              <button 
+                className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 flex items-center justify-center transition-colors"
+                suppressHydrationWarning={true}
+              >
                 <Search className="w-4 h-4" />
               </button>
             </div>

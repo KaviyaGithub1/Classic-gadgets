@@ -123,6 +123,7 @@ export const HeroSlider = () => {
               <Button 
                 size="lg" 
                 className="px-10 h-14 text-lg font-semibold rounded-full bg-white text-gray-900 hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-xl"
+                suppressHydrationWarning={true}
               >
                 {SLIDES[currentIndex].buttonText}
               </Button>
@@ -135,12 +136,14 @@ export const HeroSlider = () => {
       <button 
         onClick={goToPrev}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/20 hover:bg-black/50 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/10"
+        suppressHydrationWarning={true}
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button 
         onClick={goToNext}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/20 hover:bg-black/50 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/10"
+        suppressHydrationWarning={true}
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -156,6 +159,7 @@ export const HeroSlider = () => {
                 ? 'w-8 h-2 bg-white' 
                 : 'w-2 h-2 bg-white/50 hover:bg-white/80'
             }`}
+            suppressHydrationWarning={true}
           />
         ))}
       </div>

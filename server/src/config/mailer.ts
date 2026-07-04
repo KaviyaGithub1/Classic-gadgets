@@ -46,7 +46,7 @@ export async function getTransporter(): Promise<{ transporter: any; isRealSMTP: 
   }
 }
 
-export async function sendWelcomeEmail(toEmail: string, name: string, password: string, role: string): Promise<{ emailPreviewUrl: string; isRealSMTP: boolean }> {
+export async function sendWelcomeEmail(toEmail: string, name: string, username: string, password: string, role: string): Promise<{ emailPreviewUrl: string; isRealSMTP: boolean }> {
   let emailPreviewUrl = '';
   const { transporter, isRealSMTP } = await getTransporter();
   
@@ -102,21 +102,6 @@ export async function sendWelcomeEmail(toEmail: string, name: string, password: 
             color: white;
             margin-top: 15px;
           }
-          .detail-row {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dashed #334155;
-            padding: 10px 0;
-          }
-          .detail-label {
-            color: #94a3b8;
-            font-size: 14px;
-          }
-          .detail-value {
-            font-weight: bold;
-            color: #f1f5f9;
-            font-size: 14px;
-          }
           .button-container {
             text-align: center;
             margin-top: 25px;
@@ -140,24 +125,28 @@ export async function sendWelcomeEmail(toEmail: string, name: string, password: 
             <p style="color: #94a3b8; font-size: 13px; margin: 5px 0 0 0;">An administrator has set up a new account for you.</p>
           </div>
           
-          <div>
-            <div class="detail-row">
-              <span class="detail-label">Full Name</span>
-              <span class="detail-value">${name}</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Email</span>
-              <span class="detail-value">${toEmail}</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Role</span>
-              <span class="detail-value" style="color: #60a5fa;">${role}</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Temporary Password</span>
-              <span class="detail-value" style="color: #f43f5e; font-family: monospace;">${password}</span>
-            </div>
-          </div>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px;">
+            <tr style="border-bottom: 1px dashed #334155;">
+              <td style="padding: 12px 0; color: #94a3b8; font-size: 14px; text-align: left;">Full Name</td>
+              <td style="padding: 12px 0; font-weight: bold; color: #f1f5f9; font-size: 14px; text-align: right;">${name}</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #334155;">
+              <td style="padding: 12px 0; color: #94a3b8; font-size: 14px; text-align: left;">Username</td>
+              <td style="padding: 12px 0; font-weight: bold; color: #f1f5f9; font-size: 14px; text-align: right;">${username}</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #334155;">
+              <td style="padding: 12px 0; color: #94a3b8; font-size: 14px; text-align: left;">Email</td>
+              <td style="padding: 12px 0; font-weight: bold; color: #f1f5f9; font-size: 14px; text-align: right;">${toEmail}</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #334155;">
+              <td style="padding: 12px 0; color: #94a3b8; font-size: 14px; text-align: left;">Role</td>
+              <td style="padding: 12px 0; font-weight: bold; color: #60a5fa; font-size: 14px; text-align: right;">${role}</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #334155;">
+              <td style="padding: 12px 0; color: #94a3b8; font-size: 14px; text-align: left;">Temporary Password</td>
+              <td style="padding: 12px 0; font-weight: bold; color: #f43f5e; font-size: 14px; text-align: right; font-family: monospace;">${password}</td>
+            </tr>
+          </table>
           
           <div class="button-container">
             <a href="http://localhost:3000/login" class="btn">Log In Now</a>

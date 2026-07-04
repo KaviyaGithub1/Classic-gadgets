@@ -84,7 +84,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
       }
     });
 
-    const { emailPreviewUrl, isRealSMTP } = await sendWelcomeEmail(normalizedEmail, fullName, password, role || 'USER');
+    const { emailPreviewUrl, isRealSMTP } = await sendWelcomeEmail(normalizedEmail, fullName, username, password, role || 'USER');
 
     // SMS Dispatch Simulation
     try {

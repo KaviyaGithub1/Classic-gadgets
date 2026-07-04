@@ -77,7 +77,7 @@ export const UserModal = ({ isOpen, onClose, onSubmit, initialData, isLoading }:
           username: '',
           email: '',
           phone: '',
-          password: '',
+          password: 'password@123',
           role: 'USER'
         });
       }

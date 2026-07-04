@@ -62,6 +62,18 @@ export default function DashboardLayout({
     { name: 'Settings', href: '/dashboard/settings', icon: Settings },
   ];
 
+  const isAdminRoute = pathname.startsWith('/dashboard/admin');
+
+  if (isAdminRoute) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col">
+        <main className="flex-1 overflow-x-hidden">
+          {children}
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col md:flex-row">
       {/* Sidebar */}

@@ -20,7 +20,11 @@ export default function Home() {
           Shop premium products with unbeatable prices and trusted quality.
         </p>
         <Link href="#store">
-          <Button size="lg" className="px-10 h-14 text-base font-bold bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-lg shadow-indigo-500/30 transition-transform hover:scale-105">
+          <Button 
+            size="lg" 
+            className="px-10 h-14 text-base font-bold bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-lg shadow-indigo-500/30 transition-transform hover:scale-105"
+            suppressHydrationWarning={true}
+          >
             Shop Now
           </Button>
         </Link>
@@ -51,6 +55,7 @@ export default function Home() {
             variant="outline" 
             className="border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-8 py-2.5 rounded-xl font-bold"
             onClick={() => setShowAllProducts(!showAllProducts)}
+            suppressHydrationWarning={true}
           >
             {showAllProducts ? 'Show Less' : 'View All Products'}
           </Button>
