@@ -77,7 +77,7 @@ export default function AdminDashboardLayout({
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                   isActive
                     ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
-                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                    : "text-slate-400 hover:bg-blue-600 hover:text-white"
                 )}
               >
                 <Icon className="w-5 h-5" />
