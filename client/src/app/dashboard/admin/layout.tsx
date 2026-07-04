@@ -60,7 +60,7 @@ export default function AdminDashboardLayout({
       <aside className="w-full md:w-64 bg-slate-950 border-r border-slate-800 flex-shrink-0">
         <div className="p-6 flex items-center gap-3">
           <ShieldCheck className="w-8 h-8 text-blue-500" />
-          <Link href="/dashboard/admin/products" className="text-xl font-bold text-white tracking-wider">
+          <Link href="/dashboard/admin/analytics" className="text-xl font-bold text-white tracking-wider">
             ADMIN
           </Link>
         </div>
