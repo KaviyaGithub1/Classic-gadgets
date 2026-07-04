@@ -146,9 +146,11 @@ export default function CartPage() {
                 </div>
               </div>
 
-              <Button className="w-full h-14 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base shadow-lg shadow-indigo-200 dark:shadow-indigo-900/20 group">
-                Proceed to Checkout <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link href="/checkout">
+                <Button className="w-full h-14 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base shadow-lg shadow-indigo-200 dark:shadow-indigo-900/20 group">
+                  Proceed to Checkout <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               
               <div className="mt-4 text-center">
                 <Link href="/" className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
