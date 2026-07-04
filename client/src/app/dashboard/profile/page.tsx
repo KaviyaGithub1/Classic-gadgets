@@ -7,6 +7,29 @@ import { toast } from 'react-hot-toast';
 import { Camera, User, Lock, Mail, Phone, Hash, Save, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
+// Detect likely gender from name and return a matching avatar URL
+function getDefaultAvatar(name: string): string {
+  const firstName = name.trim().split(' ')[0].toLowerCase();
+  // Common female name endings / patterns
+  const femalePatterns = [
+    /a$/, /ia$/, /ina$/, /ita$/, /elle$/, /ette$/, /ine$/, /een$/, /leen$/, /iya$/, /ya$/, /ie$/,
+  ];
+  const femaleNames = [
+    'kaviya','priya','ananya','divya','meera','sneha','pooja','nisha','lakshmi','radha',
+    'anjali','deepa','sita','geeta','rekha','usha','nita','ritu','sunita','smita',
+    'mary','sara','sarah','emily','emma','olivia','sophia','isabella','ava','mia',
+    'amelia','harper','evelyn','abigail','ella','scarlett','grace','chloe','luna',
+    'jessica','ashley','amanda','melissa','stephanie','jennifer','elizabeth','hannah',
+    'fatima','aisha','zainab','nour','yasmin','hana','layla','maya','lena',
+  ];
+  const isFemale = femaleNames.includes(firstName) || femalePatterns.some(p => p.test(firstName));
+  const seed = encodeURIComponent(name || 'user');
+  if (isFemale) {
+    return `https://api.dicebear.com/9.x/adventurer/svg?seed=${seed}&gender=female&backgroundColor=b6e3f4`;
+  }
+  return `https://api.dicebear.com/9.x/adventurer/svg?seed=${seed}&gender=male&backgroundColor=c0aede`;
+}
+
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState<'general' | 'security'>('general');
   const [isLoading, setIsLoading] = useState(true);
@@ -214,9 +237,11 @@ export default function ProfilePage() {
                     {imagePreview ? (
                       <img src={imagePreview} alt="Profile" className="w-full h-full object-cover" />
                     ) : (
-                      <span className="text-4xl font-bold text-gray-400">
-                        {profile.fullName.charAt(0).toUpperCase()}
-                      </span>
+                      <img 
+                        src={getDefaultAvatar(profile.fullName)} 
+                        alt={profile.fullName || 'Profile'} 
+                        className="w-full h-full object-cover"
+                      />
                     )}
                     
                     {/* Hover Overlay */}
