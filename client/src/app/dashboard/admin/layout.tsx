@@ -19,7 +19,7 @@ const sidebarLinks = [
   { name: 'Products', href: '/dashboard/admin/products', icon: Package },
   { name: 'Cart', href: '/cart', icon: ShoppingCart },
   { name: 'Users', href: '/dashboard/admin/users', icon: Users },
-  { name: 'Admin', href: '/dashboard/admin/products', icon: ShieldCheck },
+  { name: 'Admin', href: '/dashboard/admin/analytics', icon: ShieldCheck },
   { name: 'Settings', href: '/dashboard/admin/settings', icon: Settings },
 ];
 
