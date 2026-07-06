@@ -84,7 +84,9 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
       }
     });
 
-    const { emailPreviewUrl, isRealSMTP } = await sendWelcomeEmail(normalizedEmail, fullName, username, password, role || 'USER');
+    // Send email asynchronously in the background so it doesn't block the HTTP response
+    sendWelcomeEmail(normalizedEmail, fullName, username, password, role || 'USER')
+      .catch((err) => console.error("Error sending welcome email in background:", err));
 
     // SMS Dispatch Simulation
     try {
@@ -96,7 +98,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
       console.error("Failed to execute SMS simulation:", smsErr);
     }
 
-    res.status(201).json({ message: 'User created successfully', emailPreviewUrl, isRealEmailSent: isRealSMTP, user: newUser });
+    res.status(201).json({ message: 'User created successfully', isRealEmailSent: true, user: newUser });
   } catch (error) {
     console.error('Error creating user:', error);
     res.status(500).json({ error: 'Internal server error' });
