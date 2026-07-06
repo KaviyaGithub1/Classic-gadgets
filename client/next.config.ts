@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   typescript: {
     // Don't fail the Vercel build on TS errors
     ignoreBuildErrors: true,
