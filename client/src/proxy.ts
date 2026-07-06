@@ -32,7 +32,7 @@ export function proxy(request: NextRequest) {
       if (role === 'ADMIN') {
         const is2faVerified = request.cookies.get('admin_2fa_verified')?.value === 'true';
         if (is2faVerified) {
-          return NextResponse.redirect(new URL('/dashboard/admin', request.url));
+          return NextResponse.redirect(new URL('/dashboard/admin/analytics', request.url));
         }
         if (request.nextUrl.pathname === '/admin/login') {
           return NextResponse.next();

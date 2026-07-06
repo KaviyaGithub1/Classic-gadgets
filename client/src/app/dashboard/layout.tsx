@@ -53,8 +53,8 @@ export default function DashboardLayout({
     { name: 'Products', href: '/#store', icon: Package },
     { name: 'Cart', href: '/cart', icon: ShoppingCart },
     ...(isAdmin ? [
-      { name: 'Users', href: '/dashboard/admin/users', icon: Users },
-      { name: 'Admin', href: is2faVerified ? '/dashboard/admin' : '/admin/login', icon: ShieldCheck }
+      { name: 'Users', href: is2faVerified ? '/dashboard/admin/users' : '/admin/login', icon: Users },
+      { name: 'Admin', href: is2faVerified ? '/dashboard/admin/analytics' : '/admin/login', icon: ShieldCheck }
     ] : []),
     { name: 'Orders', href: '/dashboard/orders', icon: Clock },
     { name: 'Wishlist', href: '/wishlist', icon: Heart },
