@@ -9,6 +9,7 @@
     "setup": "npm install --prefix server && npm install --prefix client && npm run db:push --prefix server --if-present"
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.10.42",
     "concurrently": "^10.0.3"
   }
 }
